@@ -74,13 +74,13 @@
               password: $('#password').val()
             }),
             success: function (result) {
-              if (result.lenght == 0) // you should do your checking here
+              if (result.length != 0) // you should do your checking here
               {
                 console.log('berhasil');
                 console.log(result);
               }
               else {
-                console.log('gagal');
+                alert("Password atau Username Salah");
               }
             }
           });
