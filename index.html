@@ -30,9 +30,9 @@
       <div class="card-body login-card-body">
         <p class="login-box-msg">Sign in</p>
 
-        <form action="dashboard.html" method="post">
+        <form action="" id="loginForm" method="post">
           <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="text" class="form-control" placeholder="Username" id="username">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -40,7 +40,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" placeholder="Password" id="password">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -49,7 +49,7 @@
           </div>
           <!-- /.col -->
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" name="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
       </div>
@@ -61,6 +61,32 @@
       <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
       <!-- AdminLTE App -->
       <script src="dist/js/adminlte.min.js"></script>
+      <script>
+        $("#loginForm").submit(function (event) {
+          event.preventDefault();
+          $.ajax({
+            type: "POST",
+            datatype: "json",
+            contentType: "application/json; charset=utf-8",
+            url: "https://7l9d6piaw4.execute-api.us-east-1.amazonaws.com/login",
+            data: JSON.stringify({
+              username: $('#username').val(),
+              password: $('#password').val()
+            }),
+            success: function (result) {
+              if (result.lenght == 0) // you should do your checking here
+              {
+                console.log('berhasil');
+                console.log(result);
+              }
+              else {
+                console.log('gagal');
+              }
+            }
+          });
+          return false;
+        })
+      </script>
 
 </body>
 
