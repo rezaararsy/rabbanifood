@@ -78,7 +78,7 @@
               {
                 console.log('berhasil');
                 console.log(result[0].role);
-                localStorage.setItem("role", result.role);
+                localStorage.setItem("role", result[0].role);
                 window.location.href = "dashboard.html";
               }
               else {

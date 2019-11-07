@@ -314,6 +314,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
       // const a = sessionStorage.getItem("role");
       // alert(a);
       console.log(localStorage.getItem("role"));
+      if (localStorage.getItem("role") == null || localStorage.getItem("role") == undefined) // you should do your checking here
+      {
+        alert("Silahkan Login");
+        window.location.href = "index.html";
+      }
     </script>
 </body>
 
