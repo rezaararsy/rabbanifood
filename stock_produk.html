@@ -167,7 +167,7 @@
                         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Owner</a>
+                        <p id="akune" style="color: white;"></p>
                     </div>
                 </div>
 
@@ -183,6 +183,23 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item " onclick="myFunction()">
+                            <a href="index.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Logout
+                                </p>
+                            </a>
+                            <!-- <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                          Simple Link
+                          <span class="right badge badge-danger">New</span>
+                        </p>
+                      </a>
+                    </li> -->
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -197,7 +214,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Stok Bahan</h1>
+                            <h1>Stok Produk</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -215,7 +232,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Update stok produk di toko anda</h3>
+                                <h3 class="card-title">Update Stock Produk Anda</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -223,11 +240,9 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nama Barang</th>
+                                            <th>Nama Produk</th>
                                             <th>Jumlah Stock</th>
-                                            <th>Satuan</th>
-                                            <th>Tanggal Input</th>
-                                            <th>Harga Total</th>
+                                            <th>Tanggal Masuk</th>
                                             <!-- <th>Jumlah Stok</th>
                   <th>Engine version</th>
                   <th>CSS grade</th> -->
@@ -696,6 +711,7 @@
     <script src="dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
+    <script src="skrip.js"></script>
     <!-- page script -->
     <script>
         $(function () {
@@ -722,14 +738,12 @@
                 ],
                 processing: true,
                 serverSide: true,
-                ajax: { url: "https://qzh0y1d0ej.execute-api.us-east-1.amazonaws.com/bahan/", method: "GET", dataSrc: '' },
+                ajax: { url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/", method: "GET", dataSrc: '' },
                 columns: [
                     { "data": "id" },
-                    { "data": "nama_barang" },
+                    { "data": "nama_produk" },
                     { "data": "jml_stock" },
-                    { "data": "satuan" },
                     { "data": "tgl" },
-                    { "data": "harga" },
                 ]
 
             })

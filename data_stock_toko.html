@@ -162,7 +162,7 @@
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Owner</a>
+            <p id="akune" style="color: white;"></p>
           </div>
         </div>
 
@@ -176,6 +176,23 @@
                   Dashboard
                 </p>
               </a>
+            </li>
+            <li class="nav-item " onclick="myFunction()">
+              <a href="index.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>
+                  Logout
+                </p>
+              </a>
+              <!-- <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                          Simple Link
+                          <span class="right badge badge-danger">New</span>
+                        </p>
+                      </a>
+                    </li> -->
             </li>
           </ul>
         </nav>
@@ -217,7 +234,7 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Nama Barang</th>
+                      <th>Nama Toko</th>
                       <th>Nama Produk</th>
                       <th>Jumlah Stock</th>
                       <!-- <th>Jumlah Stok</th>
@@ -688,6 +705,7 @@
   <script src="dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
+  <script src="skrip.js"></script>
   <!-- page script -->
   <script>
     $(function () {
