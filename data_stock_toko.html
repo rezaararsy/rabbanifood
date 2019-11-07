@@ -162,7 +162,7 @@
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <p id="akune" style="color: white;"></p>
+              <a id="akune" class="d-block" ></a>
           </div>
         </div>
 
@@ -222,14 +222,14 @@
 
       <!-- Main content -->
       <section class="content">
-        <div class="row">
-          <div class="col-12">
+        <div class="row" id="dataTable">
+          <!-- <div class="col-12">
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Update stok produk di toko anda</h3>
-              </div>
+              </div> -->
               <!-- /.card-header -->
-              <div class="card-body">
+              <!-- <div class="card-body">
                 <table id="example6" class="table table-bordered table-hover">
                   <thead>
                     <tr>
@@ -237,36 +237,33 @@
                       <th>Nama Toko</th>
                       <th>Nama Produk</th>
                       <th>Jumlah Stock</th>
-                      <!-- <th>Jumlah Stok</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th> -->
+                      <th>Biaya</th>
                     </tr>
                   </thead>
                   <tbody>
                   </tbody>
                 </table>
-              </div>
+              </div> -->
               <!-- /.card-body -->
-            </div>
+            <!-- </div> -->
             <!-- /.card -->
-
-
             <!-- /.card-body -->
-          </div>
+          <!-- </div> -->
           <!-- /.card -->
         </div>
         <!-- /.col -->
+      <!-- /.row -->
+      </section>
+      <!-- /.content -->
     </div>
-    <!-- /.row -->
-    </section>
-    <!-- /.content -->
   </div>
+
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.0
     </div>
-    <strong>Copyright &copy; 2019 sRabbani Food</a>.</strong> All rights
+    <strong>Copyright &copy; 2019 Rabbani Food</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -302,7 +299,32 @@
         "info": true,
         "autoWidth": false,
       });
+      
+      //PEMASARAN/KEUANGAN
+      $('#example5').DataTable({
+        'paging': true,
+        'lengthChange': false,
+        'searching': false,
+        'ordering': true,
+        'info': true,
+        'autoWidth': false,
+        dom: 'Bfrtip',
+        buttons: [
+          'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+        processing: true,
+        serverSide: true,
+        ajax: { url: "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko", method: "GET", dataSrc: '' },
+        columns: [
+          { "data": "idst" },
+          { "data": "namatok" },
+          { "data": "namaprod" },
+          { "data": "jmlst" },
+          { "data": "hargat" },
+        ]
+      });
 
+      //PRODUKSI dan OWNER
       $('#example6').DataTable({
         'paging': true,
         'lengthChange': false,
@@ -323,12 +345,65 @@
           { "data": "namaprod" },
           { "data": "jmlst" },
         ]
-
       })
-
-
-
     });
+
+    //Owner dan Produksi
+    if (localStorage.getItem("role") == 1 || localStorage.getItem("role") == 2 ) {
+      $("#dataTable").append(`<div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Update stok produk di toko anda</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example6" class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nama Toko</th>
+                      <th>Nama Produk</th>
+                      <th>Jumlah Stock</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- /.card-body -->
+          </div>`);}
+
+    //Pemasaran/Keuangan
+    if (localStorage.getItem("role") == 5) {
+      $("#dataTable").append(`<div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Update stok produk di toko anda</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example5" class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nama Toko</th>
+                      <th>Nama Produk</th>
+                      <th>Jumlah Stock</th>
+                      <th>Biaya</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- /.card-body -->
+          </div>`);}
   </script>
 </body>
 

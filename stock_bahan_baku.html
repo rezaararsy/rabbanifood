@@ -196,7 +196,7 @@
               "info": true,
               "autoWidth": false,
           });
-
+          //Menampilkan punya pemasaran/keuangan
           $('#example4').DataTable({
             'paging': true,
             'lengthChange': false,
@@ -218,7 +218,7 @@
                 { "data": "harga" },
             ]
           });
-
+          //Menampilkan punya produksi
           $('#example5').DataTable({
             'paging': true,
             'lengthChange': false,
@@ -241,7 +241,7 @@
                 { "data": "tgl" },
             ]
           });
-
+          //Menampilkan punya owner
           $('#example6').DataTable({
               'paging': true,
               'lengthChange': false,
@@ -266,12 +266,12 @@
               ]
             })
         });
-
+        //Owner
         if (localStorage.getItem("role") == 1) {
           $("#dataTable").append(`<div class="col-12">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Update Bahan Baku Anda (OWNER)</h3>
+                        <h3 class="card-title">Update Bahan Baku Anda</h3>
                       </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -293,12 +293,12 @@
                     <!-- /.card-body -->
                   </div>
                 </div>`);}
-
+        //Produksi
         if (localStorage.getItem("role") == 2) {
           $("#dataTable").append(`<div class="col-12">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Update Bahan Baku Anda (PRODUKSI)</h3>
+                        <h3 class="card-title">Update Bahan Baku Anda </h3>
                       </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -319,12 +319,12 @@
                     <!-- /.card-body -->
                   </div>
                 </div>`);}
-        
+        //Pemasaran/Keuangan
         if (localStorage.getItem("role") == 5) {
           $("#dataTable").append(`<div class="col-12">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Update Bahan Baku Anda (PEMASARAN/KEUANGAN)</h3>
+                        <h3 class="card-title">Update Bahan Baku Anda </h3>
                       </div>
                     <!-- /.card-header -->
                     <div class="card-body">
