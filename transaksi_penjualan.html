@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Rabbani Food | Stock Toko</title>
+  <title>Rabbani Food | Transaksi Penjualan</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -162,7 +162,7 @@
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <p id="akune" style="color: white;"></p>
+            <a href="#" class="d-block">Owner</a>
           </div>
         </div>
 
@@ -176,23 +176,6 @@
                   Dashboard
                 </p>
               </a>
-            </li>
-            <li class="nav-item " onclick="myFunction()">
-              <a href="index.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>
-                  Logout
-                </p>
-              </a>
-              <!-- <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                          Simple Link
-                          <span class="right badge badge-danger">New</span>
-                        </p>
-                      </a>
-                    </li> -->
             </li>
           </ul>
         </nav>
@@ -208,7 +191,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Stok Toko</h1>
+              <h1>Transaksi Penjualan</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -237,6 +220,7 @@
                       <th>Nama Toko</th>
                       <th>Nama Produk</th>
                       <th>Jumlah Stock</th>
+                      <th>Biaya</th>
                       <!-- <th>Jumlah Stok</th>
                   <th>Engine version</th>
                   <th>CSS grade</th> -->
@@ -289,7 +273,6 @@
   <script src="dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
-  <script src="skrip.js"></script>
   <!-- page script -->
   <script>
     $(function () {
@@ -322,6 +305,7 @@
           { "data": "namatok" },
           { "data": "namaprod" },
           { "data": "jmlst" },
+          { "data": "hargat" },
         ]
 
       })
