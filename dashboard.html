@@ -171,9 +171,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="content">
         <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
-          <div class="row">
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
+          <div class="row" id="kontenya">
+            <!-- <div class="col-lg-3 col-6">
+
               <div class="small-box bg-info">
                 <div class="inner">
                   <h4>Stok Bahan Produksi</h4>
@@ -182,9 +182,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
-            <!-- ./col -->
+
             <div class="col-lg-3 col-6">
-              <!-- small box -->
+
               <div class="small-box bg-success">
                 <div class="inner">
                   <h4>Data Stok Toko</h4>
@@ -192,9 +192,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
-            <!-- ./col -->
+
             <div class="col-lg-3 col-6">
-              <!-- small box -->
+
               <div class="small-box bg-warning">
                 <div class="inner">
                   <h4>Data Transaksi</h4>
@@ -202,9 +202,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
-            <!-- ./col -->
+
             <div class="col-lg-3 col-6">
-              <!-- small box -->
+
               <div class="small-box bg-danger">
                 <div class="inner">
                   <h4>Data Produksi</h4>
@@ -212,29 +212,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
-            <!-- ./col -->
+
+            <div class="col-lg-3 col-6">
+
+              <div class="small-box bg-danger">
+                <div class="inner">
+                  <h4>Tambah Akun Toko</h4>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div> -->
+
           </div>
           <!-- /.row -->
 
-          <!-- Main content -->
-          <div class="content">
-            <div class="container-fluid">
-              <!-- Small boxes (Stat box) -->
-              <div class="row">
-                <div class="col-lg-3 col-6">
-                  <!-- small box -->
-                  <div class="small-box bg-danger">
-                    <div class="inner">
-                      <h4>Tambah Akun Toko</h4>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <!-- ./col -->
-            </div>
-            <!-- /.row -->
-          </div>
+
 
 
           <!-- Main row -->
@@ -318,6 +310,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
       {
         alert("Silahkan Login");
         window.location.href = "index.html";
+      }
+    </script>
+    <script>
+      if (localStorage.getItem("role") == 1) {
+        $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Stok Bahan Produksi</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>' +
+          '');
+
       }
     </script>
 </body>
