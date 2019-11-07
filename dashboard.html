@@ -140,6 +140,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li> -->
             </li>
+            <li class="nav-item " onclick="myFunction()">
+              <a href="index.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>
+                  Logout
+                </p>
+              </a>
+              <!-- <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    Simple Link
+                    <span class="right badge badge-danger">New</span>
+                  </p>
+                </a>
+              </li> -->
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -303,6 +320,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.min.js"></script>
     <script>
+      function myFunction() {
+        localStorage.clear();
+        window.location.href = "index.html";
+      }
+    </script>
+    <script>
       // const a = sessionStorage.getItem("role");
       // alert(a);
       console.log(localStorage.getItem("role"));
@@ -315,7 +338,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
       if (localStorage.getItem("role") == 1) {
         $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Stok Bahan Produksi</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>' +
-          '');
+          '<div class="col-lg-3 col-6"><div class="small-box bg-success"><div class="inner"><h4>Data Stok Toko</h4></div><a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
+          '<div class="col-lg-3 col-6"><div class="small-box bg-warning"><div class="inner"><h4>Data Transaksi</h4></div><a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
+          '<div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h4>Data Produk</h4></div><a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
+          '<div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h4>Tambah Akun Toko</h4></div><a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>');
+
+      }
+      if (localStorage.getItem("role") == 2) {
+        $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h4>Data Produk</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>' +
+          '<div class="col-lg-3 col-6"><div class="small-box bg-success"><div class="inner"><h4>Data Stok Toko</h4></div><a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
+          '<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Stok Bahan Produksi</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>');
+
+      }
+      if (localStorage.getItem("role") == 3) {
+        $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Stok Bahan Produksi</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>');
+
+      }
+      if (localStorage.getItem("role") == 5) {
+        $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h4>Keuangan Stock Bahan</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>' +
+          '<div class="col-lg-3 col-6"><div class="small-box bg-success"><div class="inner"><h4>Keuangan Produk</h4></div><a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
+          '<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Keuangan Toko</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>');
 
       }
     </script>
