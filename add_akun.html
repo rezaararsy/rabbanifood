@@ -73,7 +73,7 @@
                         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a id="akune" class="d-block" ></a>
+                        <a id="akune" class="d-block"></a>
                     </div>
                 </div>
 
@@ -137,7 +137,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <form action="">
+                            <form method="post" id="addAkun">
 
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -177,24 +177,24 @@
         <!-- /.row -->
         </section>
         <!-- /.content -->
-    <!-- /.content-wrapper -->
-    
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
+        <!-- /.content-wrapper -->
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
-          </aside>
-          <!-- /.control-sidebar -->
-        
-          <!-- Main Footer -->
-          <footer class="main-footer">
+        </aside>
+        <!-- /.control-sidebar -->
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
             <strong>Copyright &copy; <a>2019 Rabbani Food</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
-              <b>Version</b> 3.0.0
+                <b>Version</b> 3.0.0
             </div>
-          </footer>
-        </div>
-        <!-- ./wrapper -->
+        </footer>
+    </div>
+    <!-- ./wrapper -->
 
     <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
@@ -210,43 +210,32 @@
     <script src="skrip.js"></script>
     <!-- page script -->
     <script>
-        $(function () {
-            $("#example1").DataTable();
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
+        $("#addAkun").submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                datatype: "json",
+                contentType: "application/json; charset=utf-8",
+                url: "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko/addtoko",
+                data: JSON.stringify({
+                    nama: $('#toko').val(),
+                    username: $('#username').val(),
+                    password: $('#password').val()
+                }),
+                success: function (result) {
+                    if (result) // you should do your checking here
+                    {
+                        console.log(result.affectedRows == 1);
+                        alert("Berhasil Menambahkan User Toko");
+                        window.location.href = "dashboard.html";
+                    }
+                    else {
+                        alert("Password atau Username Salah");
+                    }
+                }
             });
-
-            $('#example6').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false,
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ],
-                processing: true,
-                serverSide: true,
-                ajax: { url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/", method: "GET", dataSrc: '' },
-                columns: [
-                    { "data": "id" },
-                    { "data": "nama_produk" },
-                    { "data": "jml_stock" },
-                    { "data": "tgl" },
-                ]
-
-            })
-
-
-
-        });
+            return false;
+        })
     </script>
 </body>
 
