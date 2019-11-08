@@ -69,7 +69,7 @@
                         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a id="akune" class="d-block" ></a>
+                        <a id="akune" class="d-block"></a>
                     </div>
                 </div>
 
@@ -121,54 +121,55 @@
 
             <!-- Main content -->
             <section class="content">
-              <div class="row" id="dataTable">
-                <!-- <div class="col-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <h3 class="card-title">Update Stock Produk Anda</h3>
-                    </div> -->
-                    <!-- /.card-header -->
-                    <!-- <div class="card-body">
-                      <table id="example6" class="table table-bordered table-hover">
-                        <thead>
-                          <tr>
-                            <th>ID</th>
-                            <th>Nama Produk</th>
-                            <th>Jumlah Stock</th>
-                            <th>Harga</th>
-                            <th>Tanggal Masuk</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                      </table>
-                    </div> -->
-                    <!-- /.card-body -->
-                  <!-- </div>
-                </div> -->
-                <!-- /.card -->
-              </div>
-              <!-- /.col -->
-              <!-- /.row -->
+                <div class="row" id="dataTable">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Update Stock Produk Anda</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example6" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama Produk</th>
+                                            <th>Jumlah Stock</th>
+                                            <th>Harga</th>
+                                            <th>Tanggal Masuk</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <!-- /.row -->
             </section>
-          <!-- /.content -->
-      </div>
-    <!-- /.content-wrapper -->
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-      </aside>
-      <!-- /.control-sidebar -->
-    
-      <!-- Main Footer -->
-      <footer class="main-footer">
-        <strong>Copyright &copy; <a>2019 Rabbani Food</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-          <b>Version</b> 3.0.0
+            <!-- /.content -->
         </div>
-      </footer>
+        <!-- /.content-wrapper -->
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; <a>2019 Rabbani Food</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.0.0
+            </div>
+        </footer>
     </div>
     <!-- ./wrapper -->
 
@@ -215,36 +216,52 @@
                     { "data": "id" },
                     { "data": "nama_produk" },
                     { "data": "jml_stock" },
-                    { "data": "harga"},
+                    { "data": "harga" },
                     { "data": "tgl" },
+                    {
+                        "data": null,
+                        render: function (data, type, row, meta) {
+                            // return 'Aktif'
+                            const rolenya = localStorage.getItem("role");
+                            if (rolenya == 1) {
+                                return '<button disabled type="button" onclick="hapusProduk(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button disabled type="button" style="margin-left:10px;" onclick="editProduk(' + row['id'] + ')" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
+                            }
+                            else if (rolenya == 2) {
+                                return '<button type="button" onclick="hapusProduk(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button  type="button" style="margin-left:10px;" onclick="editProduk(' + row['id'] + ')" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
+                            }
+                            else {
+                                return ''
+                            }
+                        }
+                    }
                 ]
             })
         });
-        if (localStorage.getItem("role") == 1) {
-        $("#dataTable").append(`<div class="col-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <h3 class="card-title">Update Stock Produk Anda</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                      <table id="example6" class="table table-bordered table-hover">
-                        <thead>
-                          <tr>
-                            <th>ID</th>
-                            <th>Nama Produk</th>
-                            <th>Jumlah Stock</th>
-                            <th>Harga</th>
-                            <th>Tanggal Masuk</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                      </table>
-                    </div>
-                    <!-- /.card-body -->
-                  </div>
-                </div>`);}
+        // if (localStorage.getItem("role") == 1) {
+        // $("#dataTable").append(`<div class="col-12">
+        //           <div class="card">
+        //             <div class="card-header">
+        //               <h3 class="card-title">Update Stock Produk Anda</h3>
+        //             </div>
+        //             <!-- /.card-header -->
+        //             <div class="card-body">
+        //               <table id="example6" class="table table-bordered table-hover">
+        //                 <thead>
+        //                   <tr>
+        //                     <th>ID</th>
+        //                     <th>Nama Produk</th>
+        //                     <th>Jumlah Stock</th>
+        //                     <th>Harga</th>
+        //                     <th>Tanggal Masuk</th>
+        //                   </tr>
+        //                 </thead>
+        //                 <tbody>
+        //                 </tbody>
+        //               </table>
+        //             </div>
+        //             <!-- /.card-body -->
+        //           </div>
+        //         </div>`);}
     </script>
 </body>
 

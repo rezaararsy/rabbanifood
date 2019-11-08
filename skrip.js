@@ -14,3 +14,7 @@ if (localStorage.getItem("role") == 3) {
 if (localStorage.getItem("role") == 5) {
     $("#akune").append('Pemasaran');
 }
+function hapusProduk(id) {
+    localStorage.clear();
+    window.location.href = "index.html";
+}
