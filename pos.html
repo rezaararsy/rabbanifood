@@ -209,12 +209,12 @@
                                     <thead>
                                         <tr>
                                             <th style="width: 10px">#</th>
-                                            <th>Task</th>
-                                            <th>Progress</th>
-                                            <th>Label</th>
+                                            <th>Nama Produk</th>
+                                            <th>Jumlah</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="tbody">
                                         <!-- <tr>
                                             <td>1.</td>
                                             <td>Update software</td>
@@ -303,14 +303,14 @@
             success: function (response) {
                 $("#produknya").attr('disabled', false);
                 $.each(response, function (key, value) {
-                    $("#produknya").append('<option value=' + value.id + '>' + value.nama_produk + ' / ' + value.jml_stock + ' Buah</option>');
+                    $("#produknya").append('<option value=' + value.nama_produk + '>' + value.nama_produk + ' / ' + value.jml_stock + ' Buah</option>');
 
                 });
             }
         });
         $("#tambahkan").submit(function (event) {
             event.preventDefault();
-
+            $('#tbody').html("");
             isi = {
                 id: $('#tokonya').val(),
                 nama_produk: $('#produknya').val(),
@@ -318,7 +318,26 @@
             };
             isinya.push(isi);
             console.log(isinya);
+
+            akses();
         })
+        function akses() {
+            $.each(isinya, function (index, item) {
+                var kdoe = index + 1;
+                var eachrow = "<tr>"
+                    + "<td>" + kdoe + "</td>"
+                    + "<td>" + item.nama_produk + "</td>"
+                    + "<td>" + item.jumlah + "</td>"
+                    + '<td><button type="button" onclick="hapus(' + index + ')" class="btn btn-danger"><i class="fa fa - times"></i> Hapus</button></td>'
+                    + "</tr>";
+                $('#tbody').append(eachrow);
+            });
+        }
+        function hapus(id) {
+            $('#tbody').html("");
+            isinya.splice(id, 1);
+            akses();
+        }
 
     </script>
 </body>
