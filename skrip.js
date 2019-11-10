@@ -102,21 +102,21 @@ function editBahan1(id, namae, jml, satuan) {
                 type: "POST",
                 datatype: "json",
                 contentType: "application/json; charset=utf-8",
-                url: "https://qzh0y1d0ej.execute-api.us-east-1.amazonaws.com/bahan/addbahan",
+                url: "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko/addtoko",
                 data: JSON.stringify({
-                    nama_barang: $('#namabarang').val(),
-                    jumlah: $('#jml').val(),
-                    satuan: $('#satuan').val()
+                    nama: $('#toko').val(),
+                    username: $('#username').val(),
+                    password: $('#password').val()
                 }),
                 success: function (result) {
                     if (result) // you should do your checking here
                     {
                         console.log(result.affectedRows == 1);
-                        alert("Berhasil Menambahkan Bahan Baku");
-                        window.location.href = "stock_bahan_baku.html";
+                        alert("Berhasil Menambahkan User Toko");
+                        window.location.href = "dashboard.html";
                     }
                     else {
-                        alert("Gagal Menambahkan Bahan Baku");
+                        alert("Password atau Username Salah");
                     }
                 }
             });

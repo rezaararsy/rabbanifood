@@ -140,14 +140,15 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Toko</label>
-                                            <select class="form-control select2" style="width: 100%;">
+                                            <select class="form-control select2" style="width: 100%;" id="tokonya"
+                                                disabled>
                                                 <option selected="selected">--Pilih Nama Toko--</option>
-                                                <option>Persada</option>
+                                                <!-- <option>Persada</option>
                                                 <option>Persada2</option>
                                                 <option>Makmur Jaya</option>
                                                 <option>Makmur Subur</option>
                                                 <option>Malang I Love Peace</option>
-                                                <option>Keripik Is My Life</option>
+                                                <option>Keripik Is My Life</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -157,8 +158,16 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Barang</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="--Masukkan Nama Barang--">
+                                            <select class="form-control select2" style="width: 100%;" id="produknya"
+                                                disabled>
+                                                <option selected="selected">--Pilih Produk--</option>
+                                                <!-- <option>Persada</option>
+                                                <option>Persada2</option>
+                                                <option>Makmur Jaya</option>
+                                                <option>Makmur Subur</option>
+                                                <option>Malang I Love Peace</option>
+                                                <option>Keripik Is My Life</option> -->
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -286,9 +295,31 @@
         });
     </script>
     <script>
-        var url = "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko/getusertoko";
-        $.get(url, function (data, status) {
-            console.log(data);
+        // var url = "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko/getusertoko";
+        // $.get(url, function (data, status) {
+        //     console.log(data);
+        // });
+        $.ajax({
+            url: "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko/gettoko",
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                $("#tokonya").attr('disabled', false);
+                $.each(response, function (key, value) {
+                    $("#tokonya").append('<option value=' + value.id_toko + '>' + value.nama_toko + '</option>');
+                });
+            }
+        });
+        $.ajax({
+            url: " https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/",
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                $("#produknya").attr('disabled', false);
+                $.each(response, function (key, value) {
+                    $("#produknya").append('<option value=' + value.id + '>' + value.nama_produk + '</option>');
+                });
+            }
         });
     </script>
 </body>
