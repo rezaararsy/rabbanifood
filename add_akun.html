@@ -171,43 +171,44 @@
                     <!-- /.card -->
                 </div>
                 <!-- /.col -->
-        </section>
-        <!-- /.content -->
-        <!-- /.content-wrapper -->
+            </section>
+            <!-- /.content -->
+            <!-- /.content-wrapper -->
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="row" id="dataTable">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Daftar Akun Toko Anda</h3>
+            <!-- Main content -->
+            <section class="content">
+                <div class="row" id="dataTable">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Daftar Akun Toko Anda</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example6" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Toko</th>
+                                            <th>Nama Toko</th>
+                                            <th>Username</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="example6" class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>ID Toko</th>
-                                        <th>Nama Toko</th>
-                                        <th>Username</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
                     </div>
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
-            </div>
-            <!-- /.col -->
-            <!-- /.row -->
-        </section>
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+                <!-- /.col -->
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -246,7 +247,7 @@
                 type: "POST",
                 datatype: "json",
                 contentType: "application/json; charset=utf-8",
-                url:  "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko/addtoko",
+                url: "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko/addtoko",
                 data: JSON.stringify({
                     nama: $('#toko').val(),
                     username: $('#username').val(),
@@ -267,7 +268,7 @@
             return false;
         })
     </script>
-    
+
     <script>
         $(function () {
             $("#example1").DataTable();
@@ -298,7 +299,7 @@
                     { "data": "id_user" },
                     { "data": "nama" },
                     { "data": "username" },
-                    
+
                 ]
             })
         });

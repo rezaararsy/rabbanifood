@@ -137,21 +137,22 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Toko</label>
-                                            <select class="form-control select2" style="width: 100%;" id="tokonya"
-                                                disabled>
-                                                <option selected="selected">--Pilih Nama Toko--</option>
-                                                <!-- <option>Persada</option>
+                                    <form action="" id="tambahkan">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Toko</label>
+                                                <select class="form-control select2" style="width: 100%;" id="tokonya"
+                                                    disabled>
+                                                    <option selected="selected">--Pilih Nama Toko--</option>
+                                                    <!-- <option>Persada</option>
                                                 <option>Persada2</option>
                                                 <option>Makmur Jaya</option>
                                                 <option>Makmur Subur</option>
                                                 <option>Malang I Love Peace</option>
                                                 <option>Keripik Is My Life</option> -->
-                                            </select>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
@@ -185,9 +186,10 @@
                                     <div class="col-sm-8"></div>
                                     <div class="col-sm-2">
                                         <!-- button input -->
-                                        <button type="button" id="postSimpan"
+                                        <button type="submit" id="postSimpan"
                                             class="btn btn-block btn-primary">Tambahkan</button>
                                     </div>
+                                    </from>
                                     <div class="col-sm-2">
                                         <!-- button input -->
                                         <button type="button" id="postSelesai"
@@ -197,22 +199,37 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="example6" class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nama Barang</th>
-                                        <th>Jumlah Stock</th>
-                                        <th>Satuan</th>
-                                        <th>Tanggal Input</th>
-                                        <th>Harga Total</th>
-                                        <!-- <th>Jumlah Stok</th> -->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Payment Of Sale</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body" id="div1">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Task</th>
+                                            <th>Progress</th>
+                                            <th>Label</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- <tr>
+                                            <td>1.</td>
+                                            <td>Update software</td>
+                                            <td>
+
+                                            </td>
+                                            <td><button type="button" onclick="hapusProduk(' + row['id'] + ')"
+                                                    class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button>
+                                            </td>
+                                        </tr> -->
+
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -258,44 +275,12 @@
     <script src="skrip.js"></script>
     <!-- page script -->
     <script>
-        document.getElementById('postSimpan').addEventListener('click', postSimpan);
-        $(function () {
-            $("#example1").DataTable();
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-            });
 
-            $('#example6').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false,
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ],
-                processing: true,
-                serverSide: true,
-                ajax: { url: "https://qzh0y1d0ej.execute-api.us-east-1.amazonaws.com/bahan/", method: "GET", dataSrc: '' },
-                columns: [
-                    { "data": "id" },
-                    { "data": "nama_barang" },
-                    { "data": "jml_stock" },
-                    { "data": "satuan" },
-                    { "data": "tgl" },
-                    { "data": "harga" },
-                ]
-            })
-        });
     </script>
     <script>
+        var isinya = [];
+        document.getElementById('postSimpan').addEventListener('click', postSimpan);
+
         // var url = "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko/getusertoko";
         // $.get(url, function (data, status) {
         //     console.log(data);
@@ -323,6 +308,18 @@
                 });
             }
         });
+        $("#tambahkan").submit(function (event) {
+            event.preventDefault();
+
+            isi = {
+                id: $('#tokonya').val(),
+                nama_produk: $('#produknya').val(),
+                jumlah: $('#jumlahnya').val()
+            };
+            isinya.push(isi);
+            console.log(isinya);
+        })
+
     </script>
 </body>
 
