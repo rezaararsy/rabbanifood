@@ -128,48 +128,6 @@
                                 <h3 class="card-title">Tambah stok produk di toko anda</h3>
                             </div> -->
                             <!-- /.card-header -->
-<<<<<<< Updated upstream
-                            <form method="post" id="addProduk">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Nama Produk</label>
-                                                <input type="text" class="form-control" id="addnamaproduk"
-                                                    placeholder="--Masukkan Nama Produk--">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Jumlah Produk</label>
-                                                <input type="number" class="form-control" id="addjmlproduk"
-                                                    placeholder="--Masukkan Jumlah Produk--">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Harga</label>
-                                                <input type="text" class="form-control" id="addhargaproduk"
-                                                    placeholder="--Masukkan Harga Produk--">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-10"></div>
-                                        <div class="col-sm-2">
-                                            <!-- button input -->
-                                            <button type="submit" id="addProduk"
-                                                class="btn btn-block btn-primary">Simpan</button>
-                                        </div>
-                                    </div>
-=======
                             <!-- <form method="post" id="addProduk">
                             <div class="card-body">
                                 <div class="row">
@@ -205,255 +163,131 @@
                                     <!-- button input -->
                                       <!-- <button type="submit" id="addProduk" class="btn btn-block btn-primary">Simpan</button>
                                   </div>
->>>>>>> Stashed changes
                                 </div>
+                              </div>
                             </form>
                         </div>
-<<<<<<< Updated upstream
-=======
                     </div> -->
                 </div>
             </section>
->>>>>>> Stashed changes
 
-                        <!-- Main content -->
-                        <section class="content">
-                            <div class="row" id="dataTable">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h3 class="card-title">Update Stock Produk Anda</h3>
-                                        </div>
-                                        <!-- /.card-header -->
-                                        <div class="card-body">
-                                            <table id="example6" class="table table-bordered table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>Nama Produk</th>
-                                                        <th>Jumlah Stock</th>
-                                                        <th>Harga</th>
-                                                        <th>Tanggal Masuk</th>
-                                                        <th>Aksi</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- /.card-body -->
-                                    </div>
-                                </div>
-                                <!-- /.card -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="row" id="dataTable">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Update Stock Produk Anda</h3>
                             </div>
-                            <!-- /.col -->
-                            <!-- /.row -->
-                        </section>
-                        <!-- /.content -->
-                    </div>
-                    <!-- /.content-wrapper -->
-
-                    <!-- Control Sidebar -->
-                    <aside class="control-sidebar control-sidebar-dark">
-                        <!-- Control sidebar content goes here -->
-                    </aside>
-                    <!-- /.control-sidebar -->
-
-                    <!-- Main Footer -->
-                    <footer class="main-footer">
-                        <strong>Copyright &copy; <a>2019 Rabbani Food</a>.</strong>
-                        All rights reserved.
-                        <div class="float-right d-none d-sm-inline-block">
-                            <b>Version</b> 3.0.0
-                        </div>
-                    </footer>
-                </div>
-
-                <!-- modalnya -->
-                <div class="modal fade" id="modal-edit">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Edit Produk</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example6" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama Produk</th>
+                                            <th>Jumlah Stock</th>
+                                            <th>Harga</th>
+                                            <th>Tanggal Masuk</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
                             </div>
-                            <form method="post" id="editProduk">
-                                <div class="modal-body">
-
-                                    <input type="hidden" name="id" id="idnya">
-                                    <label for="fname">Nama Barang</label>
-                                    <input class="form-control data" type="text" placeholder="" required=""
-                                        id="namaproduk">
-
-                                    <label for="fname">Jumlah Stock</label>
-                                    <input class="form-control data" type="text" id="jml">
-
-                                    <label for="fname">Harga</label>
-                                    <input class="form-control data" type="text" id="hargae">
-
-
-                                </div>
-                                <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="submit" id="editProduk" class="btn btn-primary">Simpan</button>
-                                </div>
-                            </form>
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.modal-content -->
                     </div>
-                    <!-- /.modal-dialog -->
+                    <!-- /.card -->
                 </div>
-                <!-- /.modal -->
+                <!-- /.col -->
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
 
-                <!-- ./wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
 
-                <!-- jQuery -->
-                <script src="plugins/jquery/jquery.min.js"></script>
-                <!-- Bootstrap 4 -->
-                <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-                <!-- DataTables -->
-                <script src="plugins/datatables/jquery.dataTables.js"></script>
-                <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
-                <!-- AdminLTE App -->
-                <script src="dist/js/adminlte.min.js"></script>
-                <!-- AdminLTE for demo purposes -->
-                <script src="dist/js/demo.js"></script>
-                <script src="skrip.js"></script>
-                <!-- page script -->
-                <script>
-                    $(function () {
-                        $("#example1").DataTable();
-                        $('#example2').DataTable({
-                            "paging": true,
-                            "lengthChange": false,
-                            "searching": false,
-                            "ordering": true,
-                            "info": true,
-                            "autoWidth": false,
-                        });
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; <a>2019 Rabbani Food</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.0.0
+            </div>
+        </footer>
+    </div>
 
-<<<<<<< Updated upstream
-                        $('#example6').DataTable({
-                            'paging': true,
-                            'lengthChange': false,
-                            'searching': false,
-                            'ordering': true,
-                            'info': true,
-                            'autoWidth': false,
-                            dom: 'Bfrtip',
-                            buttons: [
-                                'copy', 'csv', 'excel', 'pdf', 'print'
-                            ],
-                            processing: true,
-                            serverSide: true,
-                            ajax: { url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/", method: "GET", dataSrc: '' },
-                            columns: [
-                                { "data": "id" },
-                                { "data": "nama_produk" },
-                                { "data": "jml_stock" },
-                                { "data": "harga" },
-                                { "data": "tgl" },
-                                {
-                                    "data": null,
-                                    render: function (data, type, row, meta) {
-                                        // return 'Aktif'
-                                        const rolenya = localStorage.getItem("role");
-                                        if (rolenya == 1) {
-                                            return '<button disabled type="button" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button disabled type="button" style="margin-left:10px;"  class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
-                                        }
-                                        else if (rolenya == 2) {
-                                            return '<button type="button" onclick="hapusProduk(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button  type="button" style="margin-left:10px;" data-toggle="modal" onclick="editProduk1(\'' + row['id'] + '\',\'' + row['nama_produk'] + '\',\'' + row['jml_stock'] + '\',\'' + row['harga'] + '\')" data-target="#modal-edit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
-                                        }
-                                        else {
-                                            return ''
-                                        }
-                                    }
-                                }
-                            ]
-                        })
-                    });
-        // if (localStorage.getItem("role") == 1) {
-        // $("#dataTable").append(`<div class="col-12">
-        //           <div class="card">
-        //             <div class="card-header">
-        //               <h3 class="card-title">Update Stock Produk Anda</h3>
-        //             </div>
-        //             <!-- /.card-header -->
-        //             <div class="card-body">
-        //               <table id="example6" class="table table-bordered table-hover">
-        //                 <thead>
-        //                   <tr>
-        //                     <th>ID</th>
-        //                     <th>Nama Produk</th>
-        //                     <th>Jumlah Stock</th>
-        //                     <th>Harga</th>
-        //                     <th>Tanggal Masuk</th>
-        //                   </tr>
-        //                 </thead>
-        //                 <tbody>
-        //                 </tbody>
-        //               </table>
-        //             </div>
-        //             <!-- /.card-body -->
-        //           </div>
-        //         </div>`);}
-                </script>
-                <script>
-                    $("#editProduk").submit(function (event) {
-                        event.preventDefault();
-                        $.ajax({
-                            type: "POST",
-                            datatype: "json",
-                            contentType: "application/json; charset=utf-8",
-                            url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/editproduk",
-                            data: JSON.stringify({
-                                id: $('#idnya').val(),
-                                nama_produk: $('#namaproduk').val(),
-                                jumlah: $('#jml').val(),
-                                harga: $('#hargae').val()
-                            }),
-                            success: function (result) {
-                                if (result) {
-                                    console.log(result);
-                                    window.location.href = "stock_produk.html";
-                                }
-                                else {
-                                    alert("Edit Gagal");
-                                }
-                            }
-                        });
-                        return false;
-                    })
-                    $("#addProduk").submit(function (event) {
-                        event.preventDefault();
-                        $.ajax({
-                            type: "POST",
-                            datatype: "json",
-                            contentType: "application/json; charset=utf-8",
-                            url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/addproduk",
-                            data: JSON.stringify({
-                                nama_produk: $('#addnamaproduk').val(),
-                                jumlah: $('#addjmlproduk').val(),
-                                harga: $('#addhargaproduk').val()
-                            }),
-                            success: function (result) {
-                                if (result) // you should do your checking here
-                                {
-                                    console.log(result.affectedRows == 1);
-                                    alert("Berhasil Menambahkan Produk");
-                                    window.location.href = "stock_produk.html";
-                                }
-                                else {
-                                    alert("Inputan Produk Salah");
-                                }
-                            }
-                        });
-                        return false;
-                    })
-                </script>
-=======
+    <!-- modalnya -->
+    <div class="modal fade" id="modal-edit">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Produk</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" id="editProduk">
+                    <div class="modal-body">
+
+                        <input type="hidden" name="id" id="idnya">
+                        <label for="fname">Nama Barang</label>
+                        <input class="form-control data" type="text" placeholder="" required="" id="namaproduk">
+
+                        <label for="fname">Jumlah Stock</label>
+                        <input class="form-control data" type="text" id="jml">
+
+                        <label for="fname">Harga</label>
+                        <input class="form-control data" type="text" id="hargae">
+
+
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" id="editProduk" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="plugins/datatables/jquery.dataTables.js"></script>
+    <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <script src="skrip.js"></script>
+    <!-- page script -->
+    <script>
+        $(function () {
+            $("#example1").DataTable();
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+            });
+
             $('#example6').DataTable({
                 'paging': true,
                 'lengthChange': false,
@@ -573,7 +407,7 @@
                 type: "POST",
                 datatype: "json",
                 contentType: "application/json; charset=utf-8",
-                url: "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/produk/addproduk",
+                url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/addproduk",
                 data: JSON.stringify({
                     nama_produk: $('#addnamaproduk').val(),
                     jumlah: $('#addjmlproduk').val(),
@@ -594,7 +428,6 @@
             return false;
         })
     </script>
->>>>>>> Stashed changes
 </body>
 
 </html>
