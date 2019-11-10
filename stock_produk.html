@@ -121,13 +121,14 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="row">
-                    <div class="col-12">
+                <div class="row" id="formAddProduk">
+                    <!-- <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Update stok produk di toko anda</h3>
-                            </div>
+                                <h3 class="card-title">Tambah stok produk di toko anda</h3>
+                            </div> -->
                             <!-- /.card-header -->
+<<<<<<< Updated upstream
                             <form method="post" id="addProduk">
                                 <div class="card-body">
                                     <div class="row">
@@ -168,9 +169,52 @@
                                                 class="btn btn-block btn-primary">Simpan</button>
                                         </div>
                                     </div>
+=======
+                            <!-- <form method="post" id="addProduk">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12"> -->
+                                      <!-- text input -->
+                                      <!-- <div class="form-group">
+                                        <label>Nama Produk</label>
+                                        <input type="text" class="form-control" id="addnamaproduk" placeholder="--Masukkan Nama Produk--">
+                                      </div>
+                                    </div>
+                                  </div>
+                                <div class="row">
+                                  <div class="col-sm-12"> -->
+                                    <!-- text input -->
+                                    <!-- <div class="form-group">
+                                      <label>Jumlah Produk</label>
+                                      <input type="text" class="form-control" id="addjmlproduk" placeholder="--Masukkan Jumlah Produk--">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-12"> -->
+                                    <!-- text input -->
+                                    <!-- <div class="form-group">
+                                      <label>Harga</label>
+                                      <input type="text" class="form-control" id="addhargaproduk" placeholder="--Masukkan Harga Produk--">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-10"></div>
+                                  <div class="col-sm-2"> -->
+                                    <!-- button input -->
+                                      <!-- <button type="submit" id="addProduk" class="btn btn-block btn-primary">Simpan</button>
+                                  </div>
+>>>>>>> Stashed changes
                                 </div>
                             </form>
                         </div>
+<<<<<<< Updated upstream
+=======
+                    </div> -->
+                </div>
+            </section>
+>>>>>>> Stashed changes
 
                         <!-- Main content -->
                         <section class="content">
@@ -290,6 +334,7 @@
                             "autoWidth": false,
                         });
 
+<<<<<<< Updated upstream
                         $('#example6').DataTable({
                             'paging': true,
                             'lengthChange': false,
@@ -408,6 +453,148 @@
                         return false;
                     })
                 </script>
+=======
+            $('#example6').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                processing: true,
+                serverSide: true,
+                ajax: { url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/", method: "GET", dataSrc: '' },
+                columns: [
+                    { "data": "id" },
+                    { "data": "nama_produk" },
+                    { "data": "jml_stock" },
+                    { "data": "harga" },
+                    { "data": "tgl" },
+                    {
+                        "data": null,
+                        render: function (data, type, row, meta) {
+                            // return 'Aktif'
+                            const rolenya = localStorage.getItem("role");
+                            if (rolenya == 1) {
+                                return '<button disabled type="button" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button disabled type="button" style="margin-left:10px;"  class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
+                            }
+                            else if (rolenya == 2) {
+                                return '<button type="button" onclick="hapusProduk(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button  type="button" style="margin-left:10px;" data-toggle="modal" onclick="editProduk1(\'' + row['id'] + '\',\'' + row['nama_produk'] + '\',\'' + row['jml_stock'] + '\',\'' + row['harga'] + '\')" data-target="#modal-edit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
+                            }
+                            else {
+                                return ''
+                            }
+                        }
+                    }
+                ]
+            })
+        });
+        if (localStorage.getItem("role") == 2) {
+        $("#formAddProduk").append(`<div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Tambah stok produk di toko anda</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <form method="post" id="addProduk">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                      <!-- text input -->
+                                      <div class="form-group">
+                                        <label>Nama Produk</label>
+                                        <input type="text" class="form-control" id="addnamaproduk" placeholder="--Masukkan Nama Produk--">
+                                      </div>
+                                    </div>
+                                  </div>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                      <label>Jumlah Produk</label>
+                                      <input type="text" class="form-control" id="addjmlproduk" placeholder="--Masukkan Jumlah Produk--">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                      <label>Harga</label>
+                                      <input type="text" class="form-control" id="addhargaproduk" placeholder="--Masukkan Harga Produk--">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-10"></div>
+                                  <div class="col-sm-2">
+                                    <!-- button input -->
+                                      <button type="submit" id="addProduk" class="btn btn-block btn-primary">Simpan</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                    </div>`);}
+    </script>
+    <script>
+        $("#editProduk").submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                datatype: "json",
+                contentType: "application/json; charset=utf-8",
+                url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/editproduk",
+                data: JSON.stringify({
+                    id: $('#idnya').val(),
+                    nama_produk: $('#namaproduk').val(),
+                    jumlah: $('#jml').val(),
+                    harga: $('#hargae').val()
+                }),
+                success: function (result) {
+                    if (result) {
+                        console.log(result);
+                        window.location.href = "stock_produk.html";
+                    }
+                    else {
+                        alert("Edit Gagal");
+                    }
+                }
+            });
+            return false;
+        })
+        $("#addProduk").submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                datatype: "json",
+                contentType: "application/json; charset=utf-8",
+                url: "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/produk/addproduk",
+                data: JSON.stringify({
+                    nama_produk: $('#addnamaproduk').val(),
+                    jumlah: $('#addjmlproduk').val(),
+                    harga: $('#addhargaproduk').val()
+                }),
+                success: function (result) {
+                    if (result) // you should do your checking here
+                    {
+                        console.log(result.affectedRows == 1);
+                        alert("Berhasil Menambahkan Produk");
+                        window.location.href = "stock_produk.html";
+                    }
+                    else {
+                        alert("Inputan Produk Salah");
+                    }
+                }
+            });
+            return false;
+        })
+    </script>
+>>>>>>> Stashed changes
 </body>
 
 </html>
