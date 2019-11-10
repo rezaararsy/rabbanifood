@@ -11,6 +11,9 @@ if (localStorage.getItem("role") == 2) {
 if (localStorage.getItem("role") == 3) {
     $("#akune").append('Logistik');
 }
+if (localStorage.getItem("role") == 4) {
+    $("#akune").append(localStorage.getItem("nama"));
+}
 if (localStorage.getItem("role") == 5) {
     $("#akune").append('Pemasaran');
 }
