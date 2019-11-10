@@ -121,6 +121,55 @@
 
             <!-- Main content -->
             <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Update stok produk di toko anda</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <form method="post" id="addProduk">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                      <!-- text input -->
+                                      <div class="form-group">
+                                        <label>Nama Produk</label>
+                                        <input type="text" class="form-control" id="addnamaproduk" placeholder="--Masukkan Nama Produk--">
+                                      </div>
+                                    </div>
+                                  </div>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                      <label>Jumlah Produk</label>
+                                      <input type="text" class="form-control" id="addjmlproduk" placeholder="--Masukkan Jumlah Produk--">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                      <label>Harga</label>
+                                      <input type="text" class="form-control" id="addhargaproduk" placeholder="--Masukkan Harga Produk--">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-10"></div>
+                                  <div class="col-sm-2">
+                                    <!-- button input -->
+                                      <button type="submit" id="addProduk" class="btn btn-block btn-primary">Simpan</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                            </div>
+
+            <!-- Main content -->
+            <section class="content">
                 <div class="row" id="dataTable">
                     <div class="col-12">
                         <div class="card">
@@ -199,7 +248,7 @@
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" id="editProduk" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -322,6 +371,32 @@
                     }
                     else {
                         alert("Edit Gagal");
+                    }
+                }
+            });
+            return false;
+        })
+        $("#addProduk").submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                datatype: "json",
+                contentType: "application/json; charset=utf-8",
+                url: "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/produk/addproduk",
+                data: JSON.stringify({
+                    nama_produk: $('#addnamaproduk').val(),
+                    jumlah: $('#addjmlproduk').val(),
+                    harga: $('#addhargaproduk').val()
+                }),
+                success: function (result) {
+                    if (result) // you should do your checking here
+                    {
+                        console.log(result.affectedRows == 1);
+                        alert("Berhasil Menambahkan Produk");
+                        window.location.href = "stock_produk.html";
+                    }
+                    else {
+                        alert("Inputan Produk Salah");
                     }
                 }
             });
