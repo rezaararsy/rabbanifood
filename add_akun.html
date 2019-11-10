@@ -209,6 +209,34 @@
     <script src="dist/js/demo.js"></script>
     <script src="skrip.js"></script>
     <!-- page script -->
+    <script>
+        $("#addAkun").submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                datatype: "json",
+                contentType: "application/json; charset=utf-8",
+                url:  "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko/addtoko",
+                data: JSON.stringify({
+                    nama: $('#toko').val(),
+                    username: $('#username').val(),
+                    password: $('#password').val()
+                }),
+                success: function (result) {
+                    if (result) // you should do your checking here
+                    {
+                        console.log(result.affectedRows == 1);
+                        alert("Berhasil Menambahkan Akun Toko");
+                        window.location.href = "add_akun.html";
+                    }
+                    else {
+                        alert("Gagal Menambahkan Akun Toko");
+                    }
+                }
+            });
+            return false;
+        })
+    </script>
 
 </body>
 
