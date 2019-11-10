@@ -76,7 +76,7 @@
                         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a id="akune" class="d-block">Owner</a>
+                        <a id="akune" class="d-block"></a>
                     </div>
                 </div>
 
@@ -176,7 +176,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Jumlah</label>
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control" id="jumlahnya"
                                                 placeholder="--Masukkan Jumlah Barang--">
                                         </div>
                                     </div>
@@ -255,6 +255,7 @@
     <script src="dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
+    <script src="skrip.js"></script>
     <!-- page script -->
     <script>
         document.getElementById('postSimpan').addEventListener('click', postSimpan);
@@ -317,7 +318,8 @@
             success: function (response) {
                 $("#produknya").attr('disabled', false);
                 $.each(response, function (key, value) {
-                    $("#produknya").append('<option value=' + value.id + '>' + value.nama_produk + '</option>');
+                    $("#produknya").append('<option value=' + value.id + '>' + value.nama_produk + ' / ' + value.jml_stock + ' Buah</option>');
+
                 });
             }
         });
