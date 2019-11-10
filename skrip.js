@@ -42,6 +42,31 @@ function hapusProduk(id) {
         return false;
     }
 }
+function hapusBahan(id) {
+    var result1 = confirm("Apakah anda yakin untuk menghapus data ini ?");
+    if (result1) {
+        event.preventDefault();
+        $.ajax({
+            type: "DELETE",
+            datatype: "json",
+            contentType: "application/json; charset=utf-8",
+            url: "https://qzh0y1d0ej.execute-api.us-east-1.amazonaws.com/bahan/deletebahan",
+            data: JSON.stringify({
+                id: id
+            }),
+            success: function (result) {
+                if (result) {
+                    console.log(result);
+                    window.location.href = "stock_bahan_baku.html";
+                }
+                else {
+                    alert("Hapus Gagal");
+                }
+            }
+        });
+        return false;
+    }
+}
 function editProduk1(id, namae, jml, harga) {
     $('#idnya').val(function () {
         return id;
@@ -54,5 +79,19 @@ function editProduk1(id, namae, jml, harga) {
     });
     $('#hargae').val(function () {
         return harga;
+    });
+}
+function editBahan1(id, namae, jml, satuan) {
+    $('#idnya').val(function () {
+        return id;
+    });
+    $('#namaproduk').val(function () {
+        return namae;
+    });
+    $('#jml').val(function () {
+        return jml;
+    });
+    $('#satuan').val(function () {
+        return satuan;
     });
 }

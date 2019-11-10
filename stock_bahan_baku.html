@@ -171,6 +171,50 @@
   </div>
   <!-- ./wrapper -->
 
+  <!-- modalnya -->
+  <div class="modal fade" id="modal-edit">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Produk</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form method="post" id="editBahan">
+          <div class="modal-body">
+
+            <input type="hidden" name="id" id="idnya">
+            <label for="fname">Nama Barang</label>
+            <input class="form-control data" type="text" placeholder="" required="" id="namaproduk">
+
+            <label for="fname">Jumlah Stock</label>
+            <input class="form-control data" type="text" id="jml">
+
+            <div class="form-group">
+              <label>Satuan</label>
+              <select class="custom-select" id="satuan">
+                <option value="Kg">Kg</option>
+                <option value="Gram">Gram</option>
+                <option value="Liter">Liter</option>
+                <option value="Ml">Ml</option>
+              </select>
+            </div>
+
+
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <script src="skrip.js"></script>
@@ -242,7 +286,7 @@
             "data": null,
             render: function (data, type, row, meta) {
               // return 'Aktif'
-              return '<button type="button" onclick="hapusProduk(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button  type="button" style="margin-left:10px;" data-toggle="modal" onclick="editProduk1(\'' + row['id'] + '\',\'' + row['nama_produk'] + '\',\'' + row['jml_stock'] + '\',\'' + row['harga'] + '\')" data-target="#modal-edit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
+              return '<button type="button" onclick="hapusBahan(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button  type="button" style="margin-left:10px;" data-toggle="modal" onclick="editBahan1(\'' + row['id'] + '\',\'' + row['nama_barang'] + '\',\'' + row['jml_stock'] + '\',\'' + row['satuan'] + '\')" data-target="#modal-edit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
 
             }
           }
@@ -274,7 +318,7 @@
       })
     });
     //Owner
-    if (localStorage.getItem("role") == 1) {
+    if (localStorage.getItem("role") == 1 || localStorage.getItem("role") == 2) {
       $("#dataTable").append(`<div class="col-12">
                     <div class="card">
                       <div class="card-header">
@@ -306,7 +350,8 @@
       $("#dataTable").append(`<div class="col-12">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title">Update Bahan Baku Anda </h3>
+                        <h3 class="card-title">Update Bahan Baku Anda </h3> <br>
+                        <a href="add_bahan_baku.html"><button type="button" onclick="" class="btn btn-warning"><i class="fa fa-plus"></i> Tambah Bahan Baku</button></a>
                       </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -355,6 +400,33 @@
                   </div>
                 </div>`);
     }
+  </script>
+  <script>
+    $("#editBahan").submit(function (event) {
+      event.preventDefault();
+      $.ajax({
+        type: "POST",
+        datatype: "json",
+        contentType: "application/json; charset=utf-8",
+        url: "https://qzh0y1d0ej.execute-api.us-east-1.amazonaws.com/bahan/editbahan",
+        data: JSON.stringify({
+          id: $('#idnya').val(),
+          nama_barang: $('#namaproduk').val(),
+          jumlah: $('#jml').val(),
+          satuan: $('#satuan').val()
+        }),
+        success: function (result) {
+          if (result) {
+            console.log(result);
+            window.location.href = "stock_bahan_baku.html";
+          }
+          else {
+            alert("Edit Gagal");
+          }
+        }
+      });
+      return false;
+    })
   </script>
 </body>
 
