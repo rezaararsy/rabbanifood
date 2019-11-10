@@ -77,7 +77,7 @@
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-              <a id="akune" class="d-block" ></a>
+            <a id="akune" class="d-block"></a>
           </div>
         </div>
 
@@ -143,8 +143,8 @@
               <div class="card-header">
                 <h3 class="card-title">Update stok produk di toko anda</h3>
               </div> -->
-              <!-- /.card-header -->
-              <!-- <div class="card-body">
+          <!-- /.card-header -->
+          <!-- <div class="card-body">
                 <table id="example6" class="table table-bordered table-hover">
                   <thead>
                     <tr>
@@ -159,26 +159,26 @@
                   </tbody>
                 </table>
               </div> -->
-              <!-- /.card-body -->
-            <!-- </div> -->
-            <!-- /.card -->
-            <!-- /.card-body -->
+          <!-- /.card-body -->
+          <!-- </div> -->
+          <!-- /.card -->
+          <!-- /.card-body -->
           <!-- </div> -->
           <!-- /.card -->
         </div>
         <!-- /.col -->
-      <!-- /.row -->
+        <!-- /.row -->
       </section>
       <!-- /.content -->
     </div>
-  <!-- /.content-wrapper -->
+    <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
-  
+
     <!-- Main Footer -->
     <footer class="main-footer">
       <strong>Copyright &copy; <a>2019 Rabbani Food</a>.</strong>
@@ -214,7 +214,7 @@
         "info": true,
         "autoWidth": false,
       });
-      
+
       //PEMASARAN/KEUANGAN
       $('#example5').DataTable({
         'paging': true,
@@ -263,8 +263,8 @@
       })
     });
 
-    //Owner dan Produksi
-    if (localStorage.getItem("role") == 1 || localStorage.getItem("role") == 2 ) {
+    //Owner 
+    if (localStorage.getItem("role") == 1) {
       $("#dataTable").append(`<div class="col-12">
             <div class="card">
               <div class="card-header">
@@ -289,7 +289,39 @@
             </div>
             <!-- /.card -->
             <!-- /.card-body -->
-          </div>`);}
+          </div>`);
+    }
+
+    //produksi
+    if (localStorage.getItem("role") == 2) {
+      $("#dataTable").append(`<div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Update stok produk </h3> <br>
+                <a href="pos.html"><button type="button" onclick="" class="btn btn-warning"><i class="fa fa-plus"></i> Tambah Stock Toko</button></a>
+                      
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example6" class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nama Toko</th>
+                      <th>Nama Produk</th>
+                      <th>Jumlah Stock</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- /.card-body -->
+          </div>`);
+    }
 
     //Pemasaran/Keuangan
     if (localStorage.getItem("role") == 5) {
@@ -318,7 +350,8 @@
             </div>
             <!-- /.card -->
             <!-- /.card-body -->
-          </div>`);}
+          </div>`);
+    }
   </script>
 </body>
 
