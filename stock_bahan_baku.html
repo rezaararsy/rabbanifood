@@ -200,8 +200,7 @@
                 <option value="Ml">Ml</option>
               </select>
             </div>
-
-
+            
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -239,6 +238,30 @@
         "info": true,
         "autoWidth": false,
       });
+      //Menampilkan punya produksi
+      $('#example3').DataTable({
+        'paging': true,
+        'lengthChange': false,
+        'searching': false,
+        'ordering': true,
+        'info': true,
+        'autoWidth': false,
+        dom: 'Bfrtip',
+        buttons: [
+          'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+        processing: true,
+        serverSide: true,
+        ajax: { url: "https://qzh0y1d0ej.execute-api.us-east-1.amazonaws.com/bahan/", method: "GET", dataSrc: '' },
+        columns: [
+          { "data": "id" },
+          { "data": "nama_barang" },
+          { "data": "jml_stock" },
+          { "data": "satuan" },
+          { "data": "tgl" },
+
+        ]
+      });
       //Menampilkan punya pemasaran/keuangan
       $('#example4').DataTable({
         'paging': true,
@@ -261,7 +284,7 @@
           { "data": "harga" },
         ]
       });
-      //Menampilkan punya produksi
+      //Menampilkan punya logistik
       $('#example5').DataTable({
         'paging': true,
         'lengthChange': false,
@@ -281,6 +304,7 @@
           { "data": "nama_barang" },
           { "data": "jml_stock" },
           { "data": "satuan" },
+          { "data": "harga" },
           { "data": "tgl" },
           {
             "data": null,
@@ -318,7 +342,7 @@
       })
     });
     //Owner
-    if (localStorage.getItem("role") == 1 || localStorage.getItem("role") == 2) {
+    if (localStorage.getItem("role") == 1) {
       $("#dataTable").append(`<div class="col-12">
                     <div class="card">
                       <div class="card-header">
@@ -344,8 +368,34 @@
                     <!-- /.card-body -->
                   </div>
                 </div>`);
+    }//Produksi
+    if (localStorage.getItem("role") == 2) {
+      $("#dataTable").append(`<div class="col-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Update Bahan Baku Anda</h3>
+                      </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      <table id="example3" class="table table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Nama Produk</th>
+                            <th>Jumlah Stock</th>
+                            <th>Satuan</th>
+                            <th>Tanggal Masuk</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+                </div>`);
     }
-    //Produksi
+    //Logistik
     if (localStorage.getItem("role") == 3) {
       $("#dataTable").append(`<div class="col-12">
                     <div class="card">
@@ -362,6 +412,7 @@
                             <th>Nama Produk</th>
                             <th>Jumlah Stock</th>
                             <th>Satuan</th>
+                            <th>Biaya</th>
                             <th>Tanggal Masuk</th>
                             <th>Aksi</th>
                           </tr>
