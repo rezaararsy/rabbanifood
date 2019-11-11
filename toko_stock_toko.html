@@ -169,6 +169,32 @@
   </div>
   <!-- ./wrapper -->
 
+  <!-- modalnya -->
+  <div class="modal fade" id="modal-edit">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title">Edit Produk</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <form method="post" id="editStockToko">
+                  <div class="modal-body">
+                      <input type="hidden" name="id" id="idnya">
+                      
+                      <label for="fname">Jumlah Stock</label>
+                      <input class="form-control data" type="text" id="jmlnya">
+
+                  </div>
+                  <div class="modal-footer justify-content-between">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Simpan</button>
+                  </div>
+              </form>
+          </div>
+          <!-- /.modal-content -->
+
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <script src="skrip.js"></script>
@@ -225,7 +251,7 @@
             "data": null,
             render: function (data, type, row, meta) {
               // return 'Aktif'
-              return '<button type="button" onclick="hapusBahan(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button  type="button" style="margin-left:10px;" data-toggle="modal" onclick="editBahan1(\'' + row['jml'] + '\')" data-target="#modal-edit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
+              return '<button type="button" onclick="hapusBahan(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button  type="button" style="margin-left:10px;" data-toggle="modal" onclick="editStockToko1(\'' + row['id'] + '\',\'' + row['jml'] + '\')" data-target="#modal-edit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
 
             }
           }
@@ -233,17 +259,17 @@
       });
     });
   </script>
-  <!-- <script>
-    $("#editBahan").submit(function (event) {
+  <script>
+    $("#editStockToko").submit(function (event) {
       event.preventDefault();
       $.ajax({
         type: "POST",
         datatype: "json",
         contentType: "application/json; charset=utf-8",
-        url: "https://qzh0y1d0ej.execute-api.us-east-1.amazonaws.com/bahan/editbahan",
+        url: "https://g4j8pd8vsl.execute-api.us-east-1.amazonaws.com/tokotoko/editstocktoko",
         data: JSON.stringify({
           id: $('#idnya').val(),
-          jumlah: $('#jml').val()
+          jumlah: $('#jmlnya').val()
         }),
         success: function (result) {
           if (result) {
@@ -257,7 +283,7 @@
       });
       return false;
     })
-  </script> -->
+  </script>
 </body>
 
 </html>
