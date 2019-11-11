@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Rabbani Food | Stock Toko</title>
+    <title>Rabbani Food | POS</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -35,26 +35,6 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="dashboard.html" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
-            </ul>
-
-            <!-- SEARCH FORM -->
-            <form class="form-inline ml-3">
-                <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -114,12 +94,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Stok Bahan</h1>
+                            <h1>POS</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
-                                <li class="breadcrumb-item active">DataTables</li>
+                                <li class="breadcrumb-item active">POS</li>
                             </ol>
                         </div>
                     </div>
@@ -132,24 +112,19 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Update stok produk di toko anda</h3>
+                                <h3 class="card-title">Pencatatan Transaksi Online</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
-                                    <form action="" id="tambahkan">
                                         <div class="col-md-12">
+                                    <form action="" id="tambahkan">
+                                        
                                             <div class="form-group">
                                                 <label>Toko</label>
                                                 <select class="form-control select2" style="width: 100%;" id="tokonya"
                                                     disabled>
                                                     <option selected="selected">--Pilih Nama Toko--</option>
-                                                    <!-- <option>Persada</option>
-                                                <option>Persada2</option>
-                                                <option>Makmur Jaya</option>
-                                                <option>Makmur Subur</option>
-                                                <option>Malang I Love Peace</option>
-                                                <option>Keripik Is My Life</option> -->
                                                 </select>
                                             </div>
                                         </div>
@@ -162,12 +137,6 @@
                                             <select class="form-control select2" style="width: 100%;" id="produknya"
                                                 disabled>
                                                 <option selected="selected">--Pilih Produk--</option>
-                                                <!-- <option>Persada</option>
-                                                <option>Persada2</option>
-                                                <option>Makmur Jaya</option>
-                                                <option>Makmur Subur</option>
-                                                <option>Malang I Love Peace</option>
-                                                <option>Keripik Is My Life</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -177,7 +146,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Jumlah</label>
-                                            <input type="number" class="form-control" id="jumlahnya" placeholder="">
+                                            <input type="number" class="form-control" id="jumlahnya" placeholder="Masukkan Jumlah">
                                         </div>
                                     </div>
                                 </div>
@@ -186,7 +155,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Harga</label>
-                                            <input type="number" class="form-control" id="harganya" placeholder="">
+                                            <input type="number" class="form-control" id="harganya" placeholder="Masukkan Harga">
                                         </div>
                                     </div>
                                 </div>
@@ -209,7 +178,7 @@
                         <!-- /.card-header -->
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Payment Of Sale</h3>
+                                <h3 class="card-title">Point Of Sale</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body" id="div1">

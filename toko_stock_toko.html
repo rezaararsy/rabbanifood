@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Rabbani Food | Stock Toko</title>
+  <title>Rabbani Food | Stok Toko</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,22 +32,7 @@
         <li class="nav-item d-none d-sm-inline-block">
           <a href="dashboard.html" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
-        </li>
       </ul>
-
-      <!-- SEARCH FORM -->
-      <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-          <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-navbar" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
     </nav>
     <!-- /.navbar -->
 
@@ -109,7 +94,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
                 <li class="breadcrumb-item active">DataTables</li>
               </ol>
             </div>
@@ -123,7 +108,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Update Bahan Baku Anda </h3> <br>
+                <h3 class="card-title">Informasi Stok Toko Anda</h3> <br>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -131,8 +116,8 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Nama Barang</th>
-                      <th>Jumlah Stock</th>
+                      <th>Nama Produk</th>
+                      <th>Jumlah Stok</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -183,12 +168,12 @@
                   <div class="modal-body">
                       <input type="hidden" name="id" id="id">
                       
-                      <label for="fname">Jumlah Stock</label>
+                      <label for="fname">Jumlah Stok</label>
                       <input class="form-control data" type="text" id="jml">
 
                   </div>
                   <div class="modal-footer justify-content-between">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                       <button type="submit" class="btn btn-primary">Simpan</button>
                   </div>
               </form>
