@@ -120,29 +120,29 @@
       <!-- Main content -->
       <section class="content">
         <div class="row" id="dataTable">
-            <div class="col-12">
-                <div class="card">
-                  <div class="card-header">
-                    <h3 class="card-title">Update Bahan Baku Anda </h3> <br>
-                    </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table id="example5" class="table table-bordered table-hover">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Nama Barang</th>
-                        <th>Jumlah Stock</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.card-body -->
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Update Bahan Baku Anda </h3> <br>
               </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example5" class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nama Barang</th>
+                      <th>Jumlah Stock</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
             </div>
+          </div>
           <!-- /.card -->
         </div>
         <!-- /.col -->
@@ -193,7 +193,7 @@
         "info": true,
         "autoWidth": false,
       });
-      
+
       //Menampilkan punya logistik
       $('#example5').DataTable({
         'paging': true,
@@ -208,13 +208,15 @@
         ],
         processing: true,
         serverSide: true,
-        ajax: { 
-          url: "https://g4j8pd8vsl.execute-api.us-east-1.amazonaws.com/tokotoko", 
+        ajax: {
+          url: "https://g4j8pd8vsl.execute-api.us-east-1.amazonaws.com/tokotoko",
           method: "POST",
-          data: {
-            "id_toko": "2"
-          }, 
-          dataSrc: '' },
+          contentType: "application/json",
+          data: function (d) {
+            return JSON.stringify({ id_toko: 2 });
+          },
+          dataSrc: '',
+        },
         columns: [
           { "data": "id" },
           { "data": "produk" },
