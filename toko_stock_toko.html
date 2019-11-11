@@ -131,11 +131,8 @@
                     <thead>
                       <tr>
                         <th>ID</th>
-                        <th>Nama Produk</th>
+                        <th>Nama Barang</th>
                         <th>Jumlah Stock</th>
-                        <th>Satuan</th>
-                        <th>Biaya</th>
-                        <th>Tanggal Masuk</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -185,7 +182,7 @@
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
   <!-- page script -->
-  <!-- <script>
+  <script>
     $(function () {
       $("#example1").DataTable();
       $('#example2').DataTable({
@@ -211,19 +208,22 @@
         ],
         processing: true,
         serverSide: true,
-        ajax: { url: "https://g4j8pd8vsl.execute-api.us-east-1.amazonaws.com/tokotoko", method: "POST", dataSrc: '' },
+        ajax: { 
+          url: "https://g4j8pd8vsl.execute-api.us-east-1.amazonaws.com/tokotoko", 
+          method: "POST",
+          data: {
+            "id_toko": "2"
+          }, 
+          dataSrc: '' },
         columns: [
           { "data": "id" },
-          { "data": "nama_barang" },
-          { "data": "jml_stock" },
-          { "data": "satuan" },
-          { "data": "harga" },
-          { "data": "tgl" },
+          { "data": "produk" },
+          { "data": "jml" },
           {
             "data": null,
             render: function (data, type, row, meta) {
               // return 'Aktif'
-              return '<button type="button" onclick="hapusBahan(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button  type="button" style="margin-left:10px;" data-toggle="modal" onclick="editBahan1(\'' + row['id'] + '\',\'' + row['nama_barang'] + '\',\'' + row['jml_stock'] + '\',\'' + row['satuan'] + '\')" data-target="#modal-edit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
+              return '<button type="button" onclick="hapusBahan(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button  type="button" style="margin-left:10px;" data-toggle="modal" onclick="editBahan1(\'' + row['jml'] + '\')" data-target="#modal-edit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
 
             }
           }
@@ -231,7 +231,7 @@
       });
     });
   </script>
-  <script>
+  <!-- <script>
     $("#editBahan").submit(function (event) {
       event.preventDefault();
       $.ajax({
@@ -241,14 +241,12 @@
         url: "https://qzh0y1d0ej.execute-api.us-east-1.amazonaws.com/bahan/editbahan",
         data: JSON.stringify({
           id: $('#idnya').val(),
-          nama_barang: $('#namaproduk').val(),
-          jumlah: $('#jml').val(),
-          satuan: $('#satuan').val()
+          jumlah: $('#jml').val()
         }),
         success: function (result) {
           if (result) {
             console.log(result);
-            window.location.href = "stock_bahan_baku.html";
+            window.location.href = "toko_stock_toko.html";
           }
           else {
             alert("Edit Gagal");
