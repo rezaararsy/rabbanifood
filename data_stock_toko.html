@@ -259,6 +259,13 @@
           { "data": "namatok" },
           { "data": "namaprod" },
           { "data": "jmlst" },
+          { "data": "hargan" },
+          {
+            "data": null,
+            render: function (data, type, row, meta) {
+              return row['hargan'] * row['jmlst'];
+            }
+          }
         ]
       })
     });
@@ -310,6 +317,8 @@
                       <th>Nama Toko</th>
                       <th>Nama Produk</th>
                       <th>Jumlah Stock</th>
+                      <th>Harga</th>
+                      <th>Harga Total</th>
                     </tr>
                   </thead>
                   <tbody>
