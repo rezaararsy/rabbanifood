@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Rabbani Food | Stock Toko</title>
+  <title>Rabbani Food | Stok Toko</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,31 +32,8 @@
         <li class="nav-item d-none d-sm-inline-block">
           <a href="dashboard.html" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
-        </li>
       </ul>
 
-      <!-- SEARCH FORM -->
-      <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-          <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-navbar" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-
-      <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-            <i class="fas fa-th-large"></i>
-          </a>
-        </li>
-      </ul>
     </nav>
     <!-- /.navbar -->
 
@@ -99,15 +76,6 @@
                   Logout
                 </p>
               </a>
-              <!-- <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                          Simple Link
-                          <span class="right badge badge-danger">New</span>
-                        </p>
-                      </a>
-                    </li> -->
             </li>
           </ul>
         </nav>
@@ -127,7 +95,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
                 <li class="breadcrumb-item active">DataTables</li>
               </ol>
             </div>
@@ -138,33 +106,6 @@
       <!-- Main content -->
       <section class="content">
         <div class="row" id="dataTable">
-          <!-- <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Update stok produk di toko anda</h3>
-              </div> -->
-          <!-- /.card-header -->
-          <!-- <div class="card-body">
-                <table id="example6" class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Nama Toko</th>
-                      <th>Nama Produk</th>
-                      <th>Jumlah Stock</th>
-                      <th>Biaya</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  </tbody>
-                </table>
-              </div> -->
-          <!-- /.card-body -->
-          <!-- </div> -->
-          <!-- /.card -->
-          <!-- /.card-body -->
-          <!-- </div> -->
-          <!-- /.card -->
         </div>
         <!-- /.col -->
         <!-- /.row -->
@@ -239,7 +180,7 @@
         ]
       });
 
-      //PRODUKSI dan OWNER
+      //PRODUKSI
       $('#example6').DataTable({
         'paging': true,
         'lengthChange': false,
@@ -258,8 +199,6 @@
           { "data": "idst" },
           { "data": "namatok" },
           { "data": "namaprod" },
-          { "data": "jmlst" },
-          { "data": "hargan" },
           {
             "data": null,
             render: function (data, type, row, meta) {
@@ -267,7 +206,31 @@
             }
           }
         ]
-      })
+      });
+
+      //OWNER
+      $('#example7').DataTable({
+        'paging': true,
+        'lengthChange': false,
+        'searching': false,
+        'ordering': true,
+        'info': true,
+        'autoWidth': false,
+        dom: 'Bfrtip',
+        buttons: [
+          'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+        processing: true,
+        serverSide: true,
+        ajax: { url: "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko", method: "GET", dataSrc: '' },
+        columns: [
+          { "data": "idst" },
+          { "data": "namatok" },
+          { "data": "namaprod" },
+          { "data": "jmlst" },
+        ]
+      });
+
     });
 
     //Owner 
@@ -275,17 +238,17 @@
       $("#dataTable").append(`<div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Update stok produk di toko anda</h3>
+                <h3 class="card-title">Informasi Stok Semua Toko</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example6" class="table table-bordered table-hover">
+                <table id="example7" class="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <th>ID</th>
                       <th>Nama Toko</th>
                       <th>Nama Produk</th>
-                      <th>Jumlah Stock</th>
+                      <th>Jumlah Stok</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -304,8 +267,8 @@
       $("#dataTable").append(`<div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Update stok produk </h3> <br>
-                <a href="pos.html"><button type="button" onclick="" class="btn btn-warning"><i class="fa fa-plus"></i> Tambah Stock Toko</button></a>
+                <h3 class="card-title">Informasi Stok Semua Toko</h3> <br>
+                <a href="pos.html"><button type="button" onclick="" class="btn btn-warning"><i class="fa fa-plus"></i> Tambah Stok Toko</button></a>
                       
               </div>
               <!-- /.card-header -->
@@ -316,7 +279,7 @@
                       <th>ID</th>
                       <th>Nama Toko</th>
                       <th>Nama Produk</th>
-                      <th>Jumlah Stock</th>
+                      <th>Jumlah Stok</th>
                       <th>Harga</th>
                       <th>Harga Total</th>
                     </tr>
@@ -337,7 +300,7 @@
       $("#dataTable").append(`<div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Update stok produk di toko anda</h3>
+                <h3 class="card-title">Informasi Stok Semua Toko</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -347,7 +310,7 @@
                       <th>ID</th>
                       <th>Nama Toko</th>
                       <th>Nama Produk</th>
-                      <th>Jumlah Stock</th>
+                      <th>Jumlah Stok</th>
                       <th>Biaya</th>
                     </tr>
                   </thead>
