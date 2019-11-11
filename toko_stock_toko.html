@@ -213,7 +213,7 @@
           method: "POST",
           contentType: "application/json",
           data: function (d) {
-            return JSON.stringify({ id_toko: 2 });
+            return JSON.stringify({ id_toko: localStorage.getItem("id_toko") });
           },
           dataSrc: '',
         },
