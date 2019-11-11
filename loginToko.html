@@ -80,7 +80,7 @@
                                 console.log('berhasil');
                                 // console.log(result[0].role);
                                 localStorage.setItem("role", 4);
-                                localStorage.setItem("id_toko", 2);
+                                localStorage.setItem("id_toko", result[0].id_user);
                                 localStorage.setItem("nama", result[0].nama);
                                 window.location.href = "dashboard.html";
                             }
