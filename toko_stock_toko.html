@@ -181,10 +181,10 @@
               </div>
               <form method="post" id="editStockToko">
                   <div class="modal-body">
-                      <input type="hidden" name="id" id="idnya">
+                      <input type="hidden" name="id" id="id">
                       
                       <label for="fname">Jumlah Stock</label>
-                      <input class="form-control data" type="text" id="jmlnya">
+                      <input class="form-control data" type="text" id="jml">
 
                   </div>
                   <div class="modal-footer justify-content-between">
@@ -268,8 +268,8 @@
         contentType: "application/json; charset=utf-8",
         url: "https://g4j8pd8vsl.execute-api.us-east-1.amazonaws.com/tokotoko/editstocktoko",
         data: JSON.stringify({
-          id: $('#idnya').val(),
-          jumlah: $('#jmlnya').val()
+          id: $('#id').val(),
+          jml: $('#jml').val()
         }),
         success: function (result) {
           if (result) {

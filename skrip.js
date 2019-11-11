@@ -95,6 +95,14 @@ function editBahan1(id, namae, jml, satuan) {
         return satuan;
     });
 }
+function editStockToko1(id, jml) {
+    $('#id').val(function () {
+        return id;
+    });
+    $('#jml').val(function () {
+        return jml;
+    });
+}
 {/* <script>
         $("#addAkun").submit(function (event) {
             event.preventDefault();
