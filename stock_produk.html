@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Rabbani Food | Stock Toko</title>
+    <title>Rabbani Food | Stok Produk</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,23 +32,7 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="dashboard.html" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
             </ul>
-
-            <!-- SEARCH FORM -->
-            <form class="form-inline ml-3">
-                <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
         </nav>
         <!-- /.navbar -->
 
@@ -122,52 +106,6 @@
             <!-- Main content -->
             <section class="content">
                 <div class="row" id="formAddProduk">
-                    <!-- <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Tambah stok produk di toko anda</h3>
-                            </div> -->
-                            <!-- /.card-header -->
-                            <!-- <form method="post" id="addProduk">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-12"> -->
-                                      <!-- text input -->
-                                      <!-- <div class="form-group">
-                                        <label>Nama Produk</label>
-                                        <input type="text" class="form-control" id="addnamaproduk" placeholder="--Masukkan Nama Produk--">
-                                      </div>
-                                    </div>
-                                  </div>
-                                <div class="row">
-                                  <div class="col-sm-12"> -->
-                                    <!-- text input -->
-                                    <!-- <div class="form-group">
-                                      <label>Jumlah Produk</label>
-                                      <input type="text" class="form-control" id="addjmlproduk" placeholder="--Masukkan Jumlah Produk--">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-sm-12"> -->
-                                    <!-- text input -->
-                                    <!-- <div class="form-group">
-                                      <label>Harga</label>
-                                      <input type="text" class="form-control" id="addhargaproduk" placeholder="--Masukkan Harga Produk--">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-sm-10"></div>
-                                  <div class="col-sm-2"> -->
-                                    <!-- button input -->
-                                      <!-- <button type="submit" id="addProduk" class="btn btn-block btn-primary">Simpan</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </form>
-                        </div>
-                    </div> -->
                 </div>
             </section>
 
@@ -177,19 +115,18 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Update Stock Produk Anda</h3>
+                                <h3 class="card-title">Informasi Stok Produk Rabbani Food</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example6" class="table table-bordered table-hover">
+                                <table id="example5" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Nama Produk</th>
-                                            <th>Jumlah Stock</th>
+                                            <th>Jumlah Stok</th>
                                             <th>Harga</th>
                                             <th>Tanggal Masuk</th>
-                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -238,10 +175,10 @@
                     <div class="modal-body">
 
                         <input type="hidden" name="id" id="idnya">
-                        <label for="fname">Nama Barang</label>
+                        <label for="fname">Nama Produk</label>
                         <input class="form-control data" type="text" placeholder="" required="" id="namaproduk">
 
-                        <label for="fname">Jumlah Stock</label>
+                        <label for="fname">Jumlah Stok</label>
                         <input class="form-control data" type="text" id="jml">
 
                         <label for="fname">Harga</label>
@@ -250,7 +187,7 @@
 
                     </div>
                     <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                         <button type="submit" id="editProduk" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
@@ -287,6 +224,29 @@
                 "info": true,
                 "autoWidth": false,
             });
+
+            $('#example5').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                processing: true,
+                serverSide: true,
+                ajax: { url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/", method: "GET", dataSrc: '' },
+                columns: [
+                    { "data": "id" },
+                    { "data": "nama_produk" },
+                    { "data": "jml_stock" },
+                    { "data": "harga" },
+                    { "data": "tgl" }
+                ]
+            })
 
             $('#example6').DataTable({
                 'paging': true,
@@ -327,11 +287,12 @@
                 ]
             })
         });
+
         if (localStorage.getItem("role") == 2) {
         $("#formAddProduk").append(`<div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Tambah stok produk di toko anda</h3>
+                                <h3 class="card-title">Tambah Stok Produk Rabbani Food</h3>
                             </div>
                             <!-- /.card-header -->
                             <form method="post" id="addProduk">
@@ -373,7 +334,34 @@
                               </div>
                             </form>
                         </div>
-                    </div>`);}
+                    </div>`);
+
+                    $("#dataTable").append(`<div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Informasi Stok Produk Rabbani Food</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example6" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama Produk</th>
+                                            <th>Jumlah Stok</th>
+                                            <th>Harga</th>
+                                            <th>Tanggal Masuk</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>`);
+            }
     </script>
     <script>
         $("#editProduk").submit(function (event) {
