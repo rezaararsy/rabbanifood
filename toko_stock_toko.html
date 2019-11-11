@@ -105,7 +105,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Stok Bahan</h1>
+              <h1>Stok Produk</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -251,7 +251,7 @@
             "data": null,
             render: function (data, type, row, meta) {
               // return 'Aktif'
-              return '<button type="button" onclick="hapusBahan(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button  type="button" style="margin-left:10px;" data-toggle="modal" onclick="editStockToko1(\'' + row['id'] + '\',\'' + row['jml'] + '\')" data-target="#modal-edit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
+              return '<button type="button" onclick="hapusProduk(' + row['id'] + ')" class="btn btn-danger"><i class="fa fa-times"></i> Hapus</button><button  type="button" style="margin-left:10px;" data-toggle="modal" onclick="editStockToko1(\'' + row['id'] + '\',\'' + row['jml'] + '\')" data-target="#modal-edit" class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>'
 
             }
           }
@@ -284,6 +284,31 @@
       return false;
     })
   </script>
+  <script>function hapusProduk(id) {
+    var result1 = confirm("Apakah anda yakin untuk menghapus data ini ?");
+    if (result1) {
+        event.preventDefault();
+        $.ajax({
+            type: "DELETE",
+            datatype: "json",
+            contentType: "application/json; charset=utf-8",
+            url: "https://uzmff5g4v1.execute-api.us-east-1.amazonaws.com/toko/deletestocktoko",
+            data: JSON.stringify({
+                id: id
+            }),
+            success: function (result) {
+                if (result) {
+                    console.log(result);
+                    window.location.href = "toko_stock_toko.html";
+                }
+                else {
+                    alert("Hapus Gagal");
+                }
+            }
+        });
+        return false;
+    }
+}</script>
 </body>
 
 </html>
