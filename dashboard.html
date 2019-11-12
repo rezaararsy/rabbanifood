@@ -162,7 +162,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
           <div class="row" id="kontenya">
-            
+
           </div>
           <!-- /.row -->
 
@@ -293,7 +293,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       var datanya = [];
       $.ajax({
         url: " https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/",
-        type: 'GET', 
+        type: 'GET',
         dataType: 'json',
         success: function (response) {
           $.each(response, function (key, value) {
@@ -330,12 +330,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     }
 
     function owner() {
-        
+
       $.ajax({
         url: " https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/",
-        type: 'GET', 
+        type: 'GET',
         dataType: 'json',
-          success: function (response) {
+        success: function (response) {
           $.each(response, function (key, value) {
             myChart.data.labels.push(value.id_toko);
             myChart.data.labels.push(value.nama_produk);
@@ -370,12 +370,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       });
     }
 
-    function logistik() { 
+    function logistik() {
       var valuenya = [];
       var datanya = [];
       $.ajax({
         url: "https://qzh0y1d0ej.execute-api.us-east-1.amazonaws.com/bahan/",
-        type: 'GET', 
+        type: 'GET',
         dataType: 'json',
         success: function (response) {
           $.each(response, function (key, value) {
@@ -413,15 +413,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     }
 
     function toko() {
+      console.log(localStorage.getItem("id_toko"));
       var valuenya = [];
       var datanya = [];
       $.ajax({
         url: "https://g4j8pd8vsl.execute-api.us-east-1.amazonaws.com/tokotoko",
-        type: 'POST', 
+        method: 'POST',
+
+        data: JSON.stringify({ id_toko: localStorage.getItem("id_toko") }),
         dataType: 'json',
-        data: function (d) {
-            return JSON.stringify({ id_toko: localStorage.getItem("id_toko") });
-          },
+
         success: function (response) {
           $.each(response, function (key, value) {
             myChart.data.labels.push(value.produk);
@@ -461,7 +462,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       var datanya = [];
       $.ajax({
         url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/",
-        type: 'GET', 
+        type: 'GET',
         dataType: 'json',
         success: function (response) {
           $.each(response, function (key, value) {
