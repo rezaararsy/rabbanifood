@@ -112,30 +112,7 @@
             <!-- Main content -->
             <section class="content">
                 <div class="row" id="dataTable">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Informasi Stok Produk Rabbani Food</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <table id="example5" class="table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Nama Produk</th>
-                                            <th>Jumlah Stok</th>
-                                            <th>Harga</th>
-                                            <th>Tanggal Masuk</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                    </div>
+                    
                     <!-- /.card -->
                 </div>
                 <!-- /.col -->
@@ -288,6 +265,8 @@
             })
         });
 
+        
+
         if (localStorage.getItem("role") == 2) {
         $("#formAddProduk").append(`<div class="col-12">
                         <div class="card">
@@ -362,6 +341,31 @@
                         </div>
                     </div>`);
             }
+            if (localStorage.getItem("role") == 1) {
+        $("#formAddProduk").append(`<div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Informasi Stok Produk Rabbani Food</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example5" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama Produk</th>
+                                            <th>Jumlah Stok</th>
+                                            <th>Harga</th>
+                                            <th>Tanggal Masuk</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>`);}
     </script>
     <script>
         $("#editProduk").submit(function (event) {
