@@ -42,6 +42,31 @@ function hapusProduk(id) {
         return false;
     }
 }
+function hapusKeuangan(id) {
+    var result1 = confirm("Apakah anda yakin untuk menghapus data ini ?");
+    if (result1) {
+        event.preventDefault();
+        $.ajax({
+            type: "DELETE",
+            datatype: "json",
+            contentType: "application/json; charset=utf-8",
+            url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/deleteproduk",
+            data: JSON.stringify({
+                id: id
+            }),
+            success: function (result) {
+                if (result) {
+                    console.log(result);
+                    window.location.href = "pemasaran_pembiayaan_produksi.html";
+                }
+                else {
+                    alert("Hapus Gagal");
+                }
+            }
+        });
+        return false;
+    }
+}
 function hapusBahan(id) {
     var result1 = confirm("Apakah anda yakin untuk menghapus data ini ?");
     if (result1) {
@@ -76,6 +101,14 @@ function editProduk1(id, namae, jml, harga) {
     });
     $('#jml').val(function () {
         return jml;
+    });
+    $('#hargae').val(function () {
+        return harga;
+    });
+}
+function editKeuangan1(id, harga) {
+    $('#idnya').val(function () {
+        return id;
     });
     $('#hargae').val(function () {
         return harga;
