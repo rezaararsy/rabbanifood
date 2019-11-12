@@ -129,15 +129,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   Logout
                 </p>
               </a>
-              <!-- <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
-                  <p>
-                    Simple Link
-                    <span class="right badge badge-danger">New</span>
-                  </p>
-                </a>
-              </li> -->
             </li>
           </ul>
         </nav>
@@ -171,57 +162,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
           <div class="row" id="kontenya">
-            <!-- <div class="col-lg-3 col-6">
-
-              <div class="small-box bg-info">
-                <div class="inner">
-                  <h4>Stok Bahan Produksi</h4>
-                </div>
-                <a href="stock_bahan_baku.html" class="small-box-footer">More info <i
-                    class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-6">
-
-              <div class="small-box bg-success">
-                <div class="inner">
-                  <h4>Data Stok Toko</h4>
-                </div>
-                <a href="data_stock_toko.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-6">
-
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <h4>Data Transaksi</h4>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-6">
-
-              <div class="small-box bg-danger">
-                <div class="inner">
-                  <h4>Data Produksi</h4>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-6">
-
-              <div class="small-box bg-danger">
-                <div class="inner">
-                  <h4>Tambah Akun Toko</h4>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div> -->
-
+            
           </div>
           <!-- /.row -->
 
@@ -306,31 +247,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </script>
   <script>
     if (localStorage.getItem("role") == 1) {
-      $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Stok Bahan Produksi</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>' +
-        '<div class="col-lg-3 col-6"><div class="small-box bg-success"><div class="inner"><h4>Data Stok Toko</h4></div><a href="data_stock_toko.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
-        '<div class="col-lg-3 col-6"><div class="small-box bg-warning"><div class="inner"><h4>Data Transaksi</h4></div><a href="transaksi_penjualan.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
-        '<div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h4>Data Produk</h4></div><a href="stock_produk.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
+      $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Stok Bahan Baku</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
+        '<div class="col-lg-3 col-6"><div class="small-box bg-success"><div class="inner"><h4>Stok Toko</h4></div><a href="data_stock_toko.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
+        '<div class="col-lg-3 col-6"><div class="small-box bg-warning"><div class="inner"><h4>Transaksi Penjualan</h4></div><a href="transaksi_penjualan.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
+        '<div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h4>Stok Produk</h4></div><a href="stock_produk.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
         '<div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h4>Tambah Akun Toko</h4></div><a href="add_akun.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>');
       owner();
     }
     if (localStorage.getItem("role") == 2) {
 
-      $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h4>Data Produk</h4></div><a href="stock_produk.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>' +
-        '<div class="col-lg-3 col-6"><div class="small-box bg-success"><div class="inner"><h4>Data Stok Toko</h4></div><a href="data_stock_toko.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
-        '<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Stok Bahan Produksi</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>');
+      $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h4>Stok Produk</h4></div><a href="stock_produk.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
+        '<div class="col-lg-3 col-6"><div class="small-box bg-success"><div class="inner"><h4>Stok Toko</h4></div><a href="data_stock_toko.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
+        '<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Stok Bahan Baku</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>');
       produksi();
     }
     if (localStorage.getItem("role") == 3) {
-      $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Stok Bahan Produksi</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>');
+      $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Stok Bahan Baku</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>');
       logistik();
     }
     if (localStorage.getItem("role") == 4) {
-      $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Data Produk</h4></div><a href="toko_stock_toko.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>' +
+      $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Stok Produk</h4></div><a href="toko_stock_toko.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
         '<div class="col-lg-3 col-6"><div class="small-box bg-success"><div class="inner"><h4>Keuangan Produk</h4></div><a href="keuangan_toko.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>');
       toko();
     }
     if (localStorage.getItem("role") == 5) {
-      $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h4>Keuangan Stock Bahan</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>' +
+      $("#kontenya").append('<div class="col-lg-3 col-6"><div class="small-box bg-danger"><div class="inner"><h4>Keuangan Stock Bahan</h4></div><a href="stock_bahan_baku.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
         '<div class="col-lg-3 col-6"><div class="small-box bg-success"><div class="inner"><h4>Keuangan Produk</h4></div><a href="pemasaran_pembiayaan_produksi.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a></div></div>' +
         '<div class="col-lg-3 col-6"><div class="small-box bg-info"><div class="inner"><h4>Keuangan Toko</h4></div><a href="data_stock_toko.html" class="small-box-footer">More info <iclass="fas fa-arrow-circle-right"></i></a></div></div>');
       pemasaran();
