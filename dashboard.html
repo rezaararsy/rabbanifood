@@ -189,7 +189,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </div>
                 </div><!-- /.card-header -->
                 <div class="card-body">
-                  <canvas id="myChart"></canvas>
+                  <div class="tab-content p-0">
+                    <!-- Morris chart - Sales -->
+                    <div class="container">
+                      <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
+                      <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
+                    </div>
+                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                      <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
+                    </div>
+                  </div>
                 </div><!-- /.card-body -->
               </div>
               <!-- /.card -->
@@ -222,7 +233,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- REQUIRED SCRIPTS -->
 
   <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
   <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -282,7 +293,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       var datanya = [];
       $.ajax({
         url: " https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/",
-        type: 'GET',
+        type: 'GET', 
         dataType: 'json',
         success: function (response) {
           $.each(response, function (key, value) {
@@ -293,7 +304,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
       });
 
-
       var ctx = document.getElementById('myChart').getContext('2d');
       var myChart = new Chart(ctx, {
         type: 'bar',
@@ -302,8 +312,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           datasets: [{
             label: 'Penjualan',
             data: [],
-            backgroundColor: 'red',
-            borderColor: 'red',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderWidth: 1
           }]
         },
@@ -320,22 +330,199 @@ scratch. This page gets rid of all links and provides the needed markup only.
     }
 
     function owner() {
-      // pake api https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/
+        
+      $.ajax({
+        url: " https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/",
+        type: 'GET', 
+        dataType: 'json',
+          success: function (response) {
+          $.each(response, function (key, value) {
+            myChart.data.labels.push(value.id_toko);
+            myChart.data.labels.push(value.nama_produk);
+            myChart.data.datasets[0].data.push(value.jml_stock);
+          });
+          myChart.update();
+        }
+      });
+
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Jumlah Stok Barang di Toko',
+            data: [],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
     }
 
-    function logistik() {
-      // pake api https://qzh0y1d0ej.execute-api.us-east-1.amazonaws.com/bahan/
+    function logistik() { 
+      var valuenya = [];
+      var datanya = [];
+      $.ajax({
+        url: "https://qzh0y1d0ej.execute-api.us-east-1.amazonaws.com/bahan/",
+        type: 'GET', 
+        dataType: 'json',
+        success: function (response) {
+          $.each(response, function (key, value) {
+            myChart.data.labels.push(value.nama_barang);
+            myChart.data.datasets[0].data.push(value.jml_stock);
+          });
+          myChart.update();
+        }
+      });
+
+
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Jumlah Stok Bahan',
+            data: [],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
     }
 
     function toko() {
-      //
+      var valuenya = [];
+      var datanya = [];
+      $.ajax({
+        url: "https://g4j8pd8vsl.execute-api.us-east-1.amazonaws.com/tokotoko",
+        type: 'POST', 
+        dataType: 'json',
+        data: function (d) {
+            return JSON.stringify({ id_toko: localStorage.getItem("id_toko") });
+          },
+        success: function (response) {
+          $.each(response, function (key, value) {
+            myChart.data.labels.push(value.produk);
+            myChart.data.datasets[0].data.push(value.jml);
+          });
+          myChart.update();
+        }
+      });
+
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Jumlah Stok Produk',
+            data: [],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
     }
 
     function pemasaran() {
-      // pake api https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/ tp hargae sing ditampilin
+      var valuenya = [];
+      var datanya = [];
+      $.ajax({
+        url: "https://hd7w3ziuif.execute-api.us-east-1.amazonaws.com/produk/",
+        type: 'GET', 
+        dataType: 'json',
+        success: function (response) {
+          $.each(response, function (key, value) {
+            myChart.data.labels.push(value.nama_produk);
+            myChart.data.datasets[0].data.push(value.harga);
+          });
+          myChart.update();
+        }
+      });
+
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Harga Barang',
+            data: [],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
     }
   </script>
+  <!--
+  <script>
+    function renderChart(data, labels) {
+      var ctx = document.getElementById("myChart").getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'This week',
+            data: data,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          }]
+        },
+      });
+    }
 
+    $("#renderBtn").click(
+      function () {
+        data = [20000, 14000, 12000, 15000, 18000, 19000, 22000];
+        labels = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+        renderChart(data, labels);
+      }
+    );</script>
+    -->
 </body>
 
 </html>
